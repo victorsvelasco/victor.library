@@ -1,6 +1,7 @@
 package entities;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 import service.Status;
 
@@ -14,10 +15,10 @@ public class Book {
     public Book() {
     	
     }
-	public Book(String title, String author, LocalDate date) {
+	public Book(String title, String author) {
 		this.title = title;
 		this.author = author;
-		this.date = date;
+		this.status = Status.AVAILABLE;
 	}
 
 	public String getTitle() {
@@ -42,24 +43,25 @@ public class Book {
 
 	public void setReturnDate(LocalDate returnDate) {
 		this.date = returnDate;
+	}
 
 	public Status getStatus() {
 		return status;
 	}
-	
-	public void checkStatus (LocalDate date) {
-		if (date.isBefore(date.now()) || date.equals(date.now())) {
-			status = Status.AVAILABLE;
-		}
-		else {
-			status = Status.BORROWED;
-		}
-	}
-
 	@Override
-	public String toString() {
-		return "Book [title= " + title + ", author= " + author + ", status= " + status + "]";
+	public int hashCode() {
+		return Objects.hash(author, title);
 	}
-	
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Book other = (Book) obj;
+		return Objects.equals(author, other.author) && Objects.equals(title, other.title);
+	}
 	
 }

@@ -17,7 +17,7 @@ public class Main {
     	
     	ArrayList <Book> books = new ArrayList<>();
     	
-    	books.add(new Book("Moby Dick", "Herman Melville", date));
+    	books.add(new Book("Moby Dick", "Herman Melville"));
     	
     	
     	System.out.printf(
