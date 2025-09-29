@@ -1,6 +1,6 @@
 package entities;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.Objects;
 
 import service.Status;
@@ -9,7 +9,7 @@ public class Book {
 
     private String title;
     private String author;
-    private Date date;
+    private LocalDate borrowDate;
     private Status status;
 
     public Book() {
@@ -21,12 +21,11 @@ public class Book {
 		this.author = author;
 		this.status = Status.AVAILABLE;
 	}
-
     
-	public Book(String title, String author, Date date) {
+	public Book(String title, String author, LocalDate date) {
 		this.title = title;
 		this.author = author;
-		this.date = date;
+		this.borrowDate = date;
 		this.status = Status.AVAILABLE;
 	}
 
@@ -46,12 +45,12 @@ public class Book {
 		this.author = author;
 	}
 
-	public Date getDate() {
-		return date;
+	public LocalDate getBorrowDate() {
+		return borrowDate;
 	}
 
-	public void setDate(Date returnDate) {
-		this.date = returnDate;
+	public void setDate(LocalDate date) {
+		this.borrowDate = date;
 	}
 
 	public Status getStatus() {
@@ -83,7 +82,7 @@ public class Book {
 		StringBuilder sb = new StringBuilder();
 		sb.append("Title: " + title);
 		sb.append(", Author: " + author);
-		sb.append(", Status: " + status + "\n");
+		sb.append(", Status: " + status);
 		return sb.toString();
 	}
 	
