@@ -19,13 +19,13 @@ public class Main {
     	libraryService.bookRegistration(new Book("b2" , "TorVic"));
     	libraryService.bookRegistration(new Book("b3", "TorVic"));
     	
-    	//Menu de escolhas
+    	// Choice menu
     	System.out.printf(
     			"Choose an option below: \n"
-    			+ "1 - Borrow book\n" // Emprestar livro
-    			+ "2 - Return book\n" // Devolver livro
-    			+ "3 - Register books\n" // Registrar livro 
-    			+ "0 - Exit\n" // Sair do menu
+    			+ "1 - Borrow book\n" // Borrow the book
+    			+ "2 - Return book\n" // Return the book
+    			+ "3 - Register books\n" // Register the book 
+    			+ "0 - Exit\n" // exit of loop
     			);
     	
     	int numberChoice = sc.nextInt();    	
